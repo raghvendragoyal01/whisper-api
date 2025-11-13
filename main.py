@@ -9,7 +9,7 @@ app = FastAPI()
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-model = whisper.load_model("medium.en")
+model = whisper.load_model("base.en")
 
 @app.get("/")
 def home():
@@ -34,3 +34,4 @@ async def transcribe_audio(file: UploadFile = File(...)):
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=10000)
+
